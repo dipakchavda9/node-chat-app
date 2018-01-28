@@ -1,17 +1,14 @@
-const expect = require('expect');
-const {generateMessage} = require('./message.js');
+var expect = require('expect');
+
+var {generateMessage} = require('./message');
 
 describe('generateMessage', () => {
-    it('should generate correct message object', () => {
-        var from = "Dipak Chavda";
-        var text = "Jay Swaminarayan!";
-        var result = generateMessage(from, text);
-        expect(result.from).toBe(from);
-        expect(result.text).toBe(text);
-        expect(result.createdAt).toBeA('number');
-        expect(result).toInclude({
-            from,
-            text
-        });
-    });
+  it('should generate correct message object', () => {
+    var from = 'Jen';
+    var text = 'Some message';
+    var message = generateMessage(from, text);
+
+    expect(message.createdAt).toBeA('number');
+    expect(message).toInclude({from, text});
+  });
 });
